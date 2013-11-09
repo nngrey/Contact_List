@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+
+	<meta charset="utf-8">
+	<title>Contacts</title>
+	<link rel="stylesheet" type="text/css" href="contacts.css">
+</head>
+
+<body>
+
+	<script type="text/x-handlebars" data-template-name="contacts">
+
+	<h1>Contacts</h1>
+
+
+    First name: {{input type="text" id="fname" placeholder="First Name" value=fName action="createContact"}}<br>
+	Last name: {{input type="text" id="lName" placeholder="Last Name" value=lName action="createContact"}}<br>
+	email: {{input type="text" id="email" placeholder="email" value=email action="createContact"}}<br>
+    <button {{action "createContact"}}>Add</button>
+		
+<table border = "1">
+		
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>email</th>
+			<th>Delete</th>
+		</tr>
+		
+		{{#each itemController="contact"}}
+		<tr>
+			<td {{bind-attr class="isEditing:editing"}}>
+    			{{#if isEditing}}
+      				{{edit-contact class="edit" value=firstName focus-out="acceptChanges" insert-newline="acceptChanges"}}
+      			{{else}}
+					<label {{action "editContact" on="doubleClick"}}>{{firstName}}</label>
+				{{/if}}
+			</td>
+			<td>{{lastName}}</td>
+			<td>{{email}}</td>
+			<td><button {{action "removeContact"}}>Delete</button></td>
+		</tr>
+		{{/each}}
+
+	</table>
+	</script>
+
+  <script src="js/libs/jquery-1.10.2.min.js"></script>
+  <script src="js/libs/handlebars-1.0.0.js"></script>
+  <script src="js/libs/ember.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+
+  <script src="js/application.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/models/contact.js"></script>
+  <script src="js/controllers/contacts_controller.js"></script>
+  <script src="js/controllers/contact_controller.js"></script>
+  <script src="js/views/edit_contact_view.js"></script>
+</body>
+</body>
+
+</html>
+
+
+
+				<!--td {{bind-attr class="isEditing:editing"}}>
+    			{{#if isEditing}}
+      				{{edit-contact class="edit2" value=lastName focus-out="acceptChanges" insert-newline="acceptChanges"}}
+      			{{else}}
+					<label {{action "editContact" on="doubleClick"}}>{{lastName}}</label>
+				{{/if}}
+			</td>
+
+			<td {{bind-attr class="isEditing:editing"}}>
+    			{{#if isEditing}}
+      				{{edit-contact class="edit3" value=email focus-out="acceptChanges" insert-newline="acceptChanges"}}
+      			{{else}}
+					<label {{action "editContact" on="doubleClick"}}>{{email}}</label>
+				{{/if}}
+			</td-->

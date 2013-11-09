@@ -1,0 +1,21 @@
+
+
+/*.editing .edit {
+	display: block;
+	width: 75px;
+	padding: 5px 5px 5px 5px;
+
+}
+
+.editing {
+	border-bottom: none;
+	padding: 0;
+}
+
+.editing .view {
+	display: none;
+}
+
+.edit {
+	display: none;
+}*/
