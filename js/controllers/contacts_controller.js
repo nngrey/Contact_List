@@ -10,6 +10,9 @@ Contacts.ContactsController = Ember.ArrayController.extend({
 
       var email = this.get('email');
       if (!email.trim()) { return; }
+      if(email.indexOf('@') < 1) { return; }
+      if(email.indexOf('.') < 1) { return; }
+
 
   
       var contact = this.store.createRecord('contact', {

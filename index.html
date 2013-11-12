@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Contacts</title>
 	<link rel="stylesheet" type="text/css" href="contacts.css">
+
 </head>
 
 <body>
@@ -12,15 +13,13 @@
 
 	<h1>Contacts</h1>
 
-
+<div class = "container">
     First name: {{input type="text" id="fname" placeholder="First Name" value=fName action="createContact"}}<br>
 	Last name: {{input type="text" id="lName" placeholder="Last Name" value=lName action="createContact"}}<br>
 	email: {{input type="text" id="email" placeholder="email" value=email action="createContact"}}<br>
     <button {{action "createContact"}}>Add</button>
-		
+	</div>
 <table border = "1">
-		
-	
 		
 <tr>
 {{#each itemController="contact"}}

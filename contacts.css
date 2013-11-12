@@ -1,5 +1,19 @@
+body{
+	font-family: sans-serif;
+}
 
+    .container {
+        width: 300px;
+        clear: both;
+    }
+    .container input {
+        width: 100%;
+        clear: both;
+    }
 
+table{
+	margin-top: 25px;
+}
 .editing .edit {
 	display: block;
 	width: 75px;
