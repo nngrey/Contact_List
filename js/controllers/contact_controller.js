@@ -6,7 +6,7 @@ Contacts.ContactController = Ember.ObjectController.extend({
     acceptChanges: function () {
       this.set('isEditing', false);
 
-      if (Ember.isEmpty(this.get('model.firstName'))) {
+      if (Ember.isEmpty(this.get('model'))) {
         this.send('removeContact');
       } else {
         this.get('model').save();
@@ -17,7 +17,7 @@ Contacts.ContactController = Ember.ObjectController.extend({
       var contact = this.get('model');
       contact.deleteRecord();
       contact.save();
-    }
+     }
 },
   isEditing: false,
 });

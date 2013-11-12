@@ -18,42 +18,36 @@
 	email: {{input type="text" id="email" placeholder="email" value=email action="createContact"}}<br>
     <button {{action "createContact"}}>Add</button>
 		
-<table border = "1">
-		
-	
-		
-<tr>
-{{#each itemController="contact"}}
-			<td {{bind-attr class="isEditing:editing"}}>
+<ul>	
+		{{#each itemController="contact"}}
+			<li {{bind-attr class="isEditing:editing"}}>
     			{{#if isEditing}}
       				{{edit-contact class="edit" value=firstName focus-out="acceptChanges" insert-newline="acceptChanges"}}
+ 
       			{{else}}
-      			<label {{action "editContact" on="doubleClick"}}>{{firstName}}</label>
-			{{/if}}	</td>
-	{{/each}}	</tr>
-	<tr>	
-	{{#each itemController="contact"}}
-<td {{bind-attr class="isEditing:editing"}}>
+					<label {{action "editContact" on="doubleClick"}}>{{firstName}} </label>
+	
+			{{/if}}
+
+
+			</li>
+		{{/each}}
+
+				{{#each itemController="contact"}}
+			<li {{bind-attr class="isEditing:editing"}}>
     			{{#if isEditing}}
       				{{edit-contact class="edit" value=lastName focus-out="acceptChanges" insert-newline="acceptChanges"}}
+ 
       			{{else}}
-					<label {{action "editContact" on="doubleClick"}}>{{lastName}}</label>
-			{{/if}}	</td>
-			{{/each}}</tr>
-			<tr>
-			{{#each itemController="contact"}}
-<td {{bind-attr class="isEditing:editing"}}>
-    			{{#if isEditing}}
-      				{{edit-contact class="edit" value=email focus-out="acceptChanges" insert-newline="acceptChanges"}}
-      			{{else}}
-					<label {{action "editContact" on="doubleClick"}}>{{email}}</label>
-			{{/if}}	</td>
-			{{/each}}<tr>{{#each itemController="contact"}}
-			<td><button {{action "removeContact"}}>Delete</button></td>{{/each}}</tr>
-</tr>
+					<label {{action "editContact" on="doubleClick"}}>{{lastName}} </label>
+	
+			{{/if}}
 
-		
-	</table>
+
+			</li>
+		{{/each}}
+
+	</ul>
 	</script>
 
   <script src="js/libs/jquery-1.10.2.min.js"></script>

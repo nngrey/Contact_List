@@ -20,39 +20,28 @@
 		
 <table border = "1">
 		
-	
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>email</th>
+			<th>Delete</th>
+		</tr>
 		
-<tr>
-{{#each itemController="contact"}}
+		{{#each itemController="contact"}}
+		<tr>
 			<td {{bind-attr class="isEditing:editing"}}>
     			{{#if isEditing}}
       				{{edit-contact class="edit" value=firstName focus-out="acceptChanges" insert-newline="acceptChanges"}}
       			{{else}}
-      			<label {{action "editContact" on="doubleClick"}}>{{firstName}}</label>
-			{{/if}}	</td>
-	{{/each}}	</tr>
-	<tr>	
-	{{#each itemController="contact"}}
-<td {{bind-attr class="isEditing:editing"}}>
-    			{{#if isEditing}}
-      				{{edit-contact class="edit" value=lastName focus-out="acceptChanges" insert-newline="acceptChanges"}}
-      			{{else}}
-					<label {{action "editContact" on="doubleClick"}}>{{lastName}}</label>
-			{{/if}}	</td>
-			{{/each}}</tr>
-			<tr>
-			{{#each itemController="contact"}}
-<td {{bind-attr class="isEditing:editing"}}>
-    			{{#if isEditing}}
-      				{{edit-contact class="edit" value=email focus-out="acceptChanges" insert-newline="acceptChanges"}}
-      			{{else}}
-					<label {{action "editContact" on="doubleClick"}}>{{email}}</label>
-			{{/if}}	</td>
-			{{/each}}<tr>{{#each itemController="contact"}}
-			<td><button {{action "removeContact"}}>Delete</button></td>{{/each}}</tr>
-</tr>
+					<label {{action "editContact" on="doubleClick"}}>{{firstName}}</label>
+				{{/if}}
+			</td>
+			<td>{{lastName}}</td>
+			<td>{{email}}</td>
+			<td><button {{action "removeContact"}}>Delete</button></td>
+		</tr>
+		{{/each}}
 
-		
 	</table>
 	</script>
 
@@ -67,7 +56,7 @@
   <script src="js/controllers/contacts_controller.js"></script>
   <script src="js/controllers/contact_controller.js"></script>
   <script src="js/views/edit_contact_view.js"></script>
-  <script src="js/views/edit_contact_view2.js"></script>
+</body>
 </body>
 
 </html>
